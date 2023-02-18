@@ -3,14 +3,13 @@ import { Card } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
-import {initiateLogin} from "../../utils/network";
+import * as APINetwork from "../../utils/network";
 import logo from "../../assets/images/login_logo.svg";
 import metamask from "../../assets/images/metamask.svg";
 
 export default function Login() {
 
   async function requestAccount() {
-
     var Web3 = require('web3');
 
     var web3 = new Web3(Web3.givenProvider || "http://localhost:3000");
@@ -23,12 +22,21 @@ export default function Login() {
           method: "eth_requestAccounts",
         });
 
-        let response = await initiateLogin(accounts[0]);
-
+        let response = await APINetwork.initiateLogin(accounts[0]);
         if (response.message) {
           console.log(response.message);
-          web3.eth.sign(web3.utils.utf8ToHex(response), accounts[0])
-          .then(console.log);
+          // it is supposed to be web3.eth.personal.sign 
+          // it was written as web3.eth.sign below
+          web3.eth.personal.sign(response.message, accounts[0], '', async (err, result) => {
+            if (err) {
+              console.log(err);
+              alert("Error signing message");
+            } else {
+              let loginResponse = await APINetwork.login(accounts[0], result);
+              console.log(loginResponse);
+              // contains token and user info. Add to local storage and continue login process to dashboard here
+            }
+          });
         }
 
       } catch (err) {
