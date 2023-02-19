@@ -24,10 +24,11 @@ export const login = async (walletAddress, signature) => {
 };
 
 export const getToken = async () => {
-  let token = JSON.parse(localStorage.getItem("token"));
+  let token = localStorage.getItem("token");
   let options = {
     headers: {
-      Authorization: token,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
     },
   };
   return options;
@@ -35,7 +36,7 @@ export const getToken = async () => {
 
 export const getAllDevices = async () => {
     let endpoint = `${process.env.REACT_APP_ENDPOINT}device`;
-    const options = getToken();
+    const options = await getToken();
     
     let response = await axios.get(endpoint, options);
     response = response.data;
