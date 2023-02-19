@@ -1,0 +1,74 @@
+[
+  {
+    "id": "63e8e3eec05930e7be55d5f1",
+    "createdAt": "2023-02-12T13:04:46.327Z",
+    "owner": "0xa8e3efc7b64ad8c21ad97daf8acc838ce1a9e794",
+    "deviceNickname": "My Macbook Air",
+    "deviceType": {
+      "type": "MAC",
+      "name": "Macbook Air 2022 model"
+    },
+    "isLost": false,
+    "deviceHash": "ed2456914e48c1e17b7bd922177291ef8b7f553edf1b1f66b6fc1a076524b22f"
+  },
+  {
+    "id": "63e8e3eec05930e7be55d5f2",
+    "createdAt": "2023-02-12T13:04:46.327Z",
+    "owner": "0xa8e3efc7b64ad8c21ad97daf8acc838ce1a9e794",
+    "deviceNickname": "My Macbook Pro",
+    "deviceType": {
+      "type": "MAC",
+      "name": "Macbook Pro"
+    },
+    "isLost": false,
+    "deviceHash": "ed2456914e48c1e17b7bd922177291ef8b7f553edf1b1f66b6fc1a076524b22f"
+  },
+  {
+    "id": "63e8e3eec05930e7be55d5f1",
+    "createdAt": "2023-02-12T13:04:46.327Z",
+    "owner": "0xa8e3efc7b64ad8c21ad97daf8acc838ce1a9e794",
+    "deviceNickname": "My Watch",
+    "deviceType": {
+      "type": "WEARABLE",
+      "name": "iWatch 42inch"
+    },
+    "isLost": false,
+    "deviceHash": "ed2456914e48c1e17b7bd922177291ef8b7f553edf1b1f66b6fc1a076524b22f"
+  },
+  {
+    "id": "63e8e3eec05930e7be55d5f1",
+    "createdAt": "2023-02-12T13:04:46.327Z",
+    "owner": "0xa8e3efc7b64ad8c21ad97daf8acc838ce1a9e794",
+    "deviceNickname": "Bluetooth headset",
+    "deviceType": {
+      "type": "AUDIO",
+      "name": "Boat Rockers Pro"
+    },
+    "isLost": false,
+    "deviceHash": "ed2456914e48c1e17b7bd922177291ef8b7f553edf1b1f66b6fc1a076524b22f"
+  },
+  {
+    "id": "63e8e3eec05930e7be55d5f1",
+    "createdAt": "2023-02-12T13:04:46.327Z",
+    "owner": "0xa8e3efc7b64ad8c21ad97daf8acc838ce1a9e794",
+    "deviceNickname": "My phone",
+    "deviceType": {
+      "type": "IOS",
+      "name": "IPhone 14 Plus"
+    },
+    "isLost": false,
+    "deviceHash": "ed2456914e48c1e17b7bd922177291ef8b7f553edf1b1f66b6fc1a076524b22f"
+  },
+  {
+    "id": "63e8e3eec05930e7be55d5f1",
+    "createdAt": "2023-02-12T13:04:46.327Z",
+    "owner": "0xa8e3efc7b64ad8c21ad97daf8acc838ce1a9e794",
+    "deviceNickname": "My gaming laptop",
+    "deviceType": {
+      "type": "WINDOWS",
+      "name": "HP Pavilion Gaming Laptop"
+    },
+    "isLost": false,
+    "deviceHash": "ed2456914e48c1e17b7bd922177291ef8b7f553edf1b1f66b6fc1a076524b22f"
+  }
+]

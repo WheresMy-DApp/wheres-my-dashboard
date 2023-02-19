@@ -1,4 +1,6 @@
 import "../../styles/dashboard.css";
+import { useState, useEffect } from "react";
+
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
@@ -13,16 +15,41 @@ import iconMouse from "../../assets/icons/Mouse.svg";
 import mobile from "../../assets/images/mobiles.png";
 import speaker from "../../assets/images/speaker.png";
 import watch from "../../assets/images/watch.png";
-import headphones from "../../assets/images/headphones.png";
+// import headphones from "../../assets/images/headphones.png";
+import laptop from "../../assets/icons/Laptop.svg";
 
 import CustomCard from "../../components/cards/Card";
 import Map from "../../components/maps/Map.jsx";
 
+import * as APINetwork from "../../utils/network";
 
-export default function Dashboard(props) {
+import devices from "../../contexts/devices.json";
 
-  console.log(props);
-  
+export default function Dashboard() {
+
+   //set state once devices received from api
+
+  const [allDevices, setAllDevices] = useState([]);
+
+  async function fetchAllDevices () {
+    try {
+      let devices = await APINetwork.getAllDevices();
+      if(devices ) {
+        setAllDevices(devices);
+      }
+    }
+    catch(err) {
+      console.error(err);
+    }
+  }
+
+  useEffect(() =>{
+    fetchAllDevices();
+    console.log("Fetched all devices!");
+    console.log(allDevices);
+  }, [allDevices])
+ 
+
   return (
     <div className="dashboard">
       <div class="side-menu">
@@ -36,7 +63,7 @@ export default function Dashboard(props) {
               <a href="/dashboard">Dashboard</a>
             </li>
             <li className="logout">
-              <a href="/">Logout</a>
+              <a href="/logout">Logout</a>
             </li>
           </ul>
         </nav>
@@ -116,35 +143,57 @@ export default function Dashboard(props) {
         </div>
 
         <div class="card-group">
-          <CustomCard
-            img={mobile}
-            device="Nikitha's Mobile"
-            height="150"
-            alt="mobile img"
-          />
-          <CustomCard
-            img={speaker}
-            device="My Speaker"
-            height="150"
-            alt="mobile img"
-          />
-          <CustomCard
-            img={watch}
-            device="My watch"
-            height="150"
-            alt="mobile img"
-          />
-          <CustomCard
-            img={headphones}
-            device="Ved's headphones"
-            height="150"
-            alt="mobile img"
-          />
+          {devices.map((ele, index) => {
+            if (
+              ele.deviceType.type === "IOS" ||
+              ele.deviceType.type === "ANDRIOD"
+            ) {
+              return (
+                <CustomCard
+                  img={mobile}
+                  device={ele.deviceNickname}
+                  height="150"
+                  alt="mobile img"
+                />
+              );
+            }
+
+            if (ele.deviceType.type === "WEARABLE") {
+              return (
+                <CustomCard
+                  img={watch}
+                  device={ele.deviceNickname}
+                  height="150"
+                  alt="mobile img"
+                />
+              );
+            }
+            if (ele.deviceType.type === "AUDIO") {
+              return (
+                <CustomCard
+                  img={speaker}
+                  device={ele.deviceNickname}
+                  height="150"
+                  alt="mobile img"
+                />
+              );
+            }
+
+            if (ele.deviceType.type === "MAC") {
+              return (
+                <CustomCard
+                  img={laptop}
+                  device={ele.deviceNickname}
+                  height="150"
+                  alt="mobile img"
+                />
+              );
+            }
+          })}
         </div>
 
         <h3>Track Your Devices</h3>
         <Map />
-        
       </div>
     </div>
   );
