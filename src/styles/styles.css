@@ -1,61 +1,70 @@
+/*imports*/
+@import "./Avenir-Black.css";
+@import "./Avenir-Book.css";
+@import "./Avenir-Light.css";
+@import "./Avenir-Heavy.css";
+@import "./Avenir-Medium.css";
+
 /* constants */
 :root {
   /* fonts */
-  --font-family:Avenir,'Segoe UI',Roboto, Oxygen, Ubuntu,Cantarell, 'Open Sans', 'Helvetica Neue'sans-serif;
-  --font-h1               :Avenir-Black;
-  --font-h2               :Avenir-Black;
-  --font-h3               :Avenir-Heavy;
-  --font-h4               :Avenir-Heavy;
-  --font-h5               :Avenir-Book;
-  --font-h6               :Avenir-Heavy;
-  --body-one              :Avenir-Light;
-  --body-two              :Avenir-Book;
-  --info-text             :Avenir-Underline-Black;
-  --subscript-one         :Avenir-Book;
-  --subscript-two         :Avenir-Heavy;
-  --caption-text          :Avenir-Medium;
-  --button-text           :Avenir-Heavy;
+  --font-family: Avenir-Black;
+  --font-h1: Avenir-Black;
+  --font-h2: Avenir-Black;
+  --font-h3: Avenir-Heavy;
+  --font-h4: Avenir-Heavy;
+  --font-h5: Avenir-Book;
+  --font-h6: Avenir-Heavy;
+  --body-one: Avenir-Light;
+  --body-two: Avenir-Book;
+  --info-text: Avenir-Underline-Black;
+  --subscript-one: Avenir-Book;
+  --subscript-two: Avenir-Heavy;
+  --caption-text: Avenir-Medium;
+  --button-text: Avenir-Heavy;
 
   /* font size  */
-  --size-h1               :36px;
-  --size-h2               :28px;
-  --size-h3               :24px;
-  --size-h4               :18px;
-  --size-h5               :16px;
-  --size-h6               :14px;
-  --size-body-one         :16px;
-  --size-body-two         :14px;
-  --size-info             :14px;
-  --size-subscript        :12px;
-  --size-caption          :10px;
-  --size-button           :16px;
+  --size-h1: 36px;
+  --size-h2: 28px;
+  --size-h3: 24px;
+  --size-h4: 18px;
+  --size-h5: 16px;
+  --size-h6: 14px;
+  --size-body-one: 16px;
+  --size-body-two: 14px;
+  --size-info: 14px;
+  --size-subscript: 12px;
+  --size-caption: 10px;
+  --size-button: 16px;
 
   /* colors */
-  --monochrome            : #080808;
-  --black                 : #000000;
-  --monochrome-two        : #191919;
-  --monochrome-three      : #393939;
-  --monochrome-four       : #6B6B6B;
-  --monochrome-six        : #6B6B6B;
-  --monochrome-eight      : #F3F3F3;
-  --primary-main          : #936EF4;
-  --primary-dark          : #664BAF;
-  --secondary-one-dark    : #03876C;
-  --secondary-one-main    : #05C19B;
-  --secondary-one-light   : #37CDAF;
-  --secondary-two-main    : #FBD540;
-  --secondary-two-light   : #FBDD66;
-  --white                 : #FFFFFF;
-  --orange                : #F6613E;
+  --monochrome: #080808;
+  --black: #000000;
+  --monochrome-two: #191919;
+  --monochrome-three: #393939;
+  --monochrome-four: #6b6b6b;
+  --monochrome-six: #6b6b6b;
+  --monochrome-eight: #f3f3f3;
+  --primary-main: #936ef4;
+  --primary-dark: #664baf;
+  --secondary-one-dark: #03876c;
+  --secondary-one-main: #05c19b;
+  --secondary-one-light: #37cdaf;
+  --secondary-two-main: #fbd540;
+  --secondary-two-light: #fbdd66;
+  --white: #ffffff;
+  --orange: #f6613e;
 
   font-family: var(--font-family);
   color: var(--white);
   background: var(--black);
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
+  font-family: var(--font-family);
 }
 
 h1 {
@@ -90,12 +99,16 @@ h6 {
 
 p {
   font-size: var(--size-body-one);
-  font-family: var( --body-one);
+  font-family: var(--body-one);
 }
 
 .top-half {
   height: 30vh;
-  background: linear-gradient(to left,var(--primary-dark), var(--primary-main));
+  background: linear-gradient(
+    to left,
+    var(--primary-dark),
+    var(--primary-main)
+  );
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -113,7 +126,7 @@ p {
 }
 
 .card .logo {
-  margin : 0 auto;
+  margin: 0 auto;
 }
 
 .card .login-form Button {
@@ -149,6 +162,3 @@ p {
 .register-label {
   color: var(--secondary-two-main);
 }
-
-
-
