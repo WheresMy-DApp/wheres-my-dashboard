@@ -132,6 +132,7 @@ p {
 .card .login-form Button {
   background: var(--monochrome) !important;
   border: 0.5px solid var(--white);
+  margin: 5% 0 0;
   padding: 2%;
   font-family: var(--button-text);
   font-size: var(--size-button);

@@ -80,11 +80,11 @@ export default function Login() {
             Sign In with Metamask
           </Button>
 
-          <div class="login-footer">
+          {/* <div class="login-footer">
             <p>
               Don't have an account? <a href="/register">Sign Up</a>
             </p>
-          </div>
+          </div> */}
         </div>
       </Card>
     </div>
