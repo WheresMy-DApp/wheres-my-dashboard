@@ -27,7 +27,6 @@ export const getToken = async () => {
   let token = localStorage.getItem("token");
   let options = {
     headers: {
-      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   };
@@ -35,12 +34,12 @@ export const getToken = async () => {
 };
 
 export const getAllDevices = async () => {
-    let endpoint = `${process.env.REACT_APP_ENDPOINT}device`;
-    const options = await getToken();
-    
-    let response = await axios.get(endpoint, options);
-    response = response.data;
-    return response;
+  let endpoint = `${process.env.REACT_APP_ENDPOINT}device`;
+  const options = await getToken();
+
+  let response = await axios.get(endpoint, options);
+  response = response.data;
+  return response;
 };
 
 export const logout = async () => {

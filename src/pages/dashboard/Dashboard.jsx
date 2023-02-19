@@ -33,11 +33,13 @@ export default function Dashboard() {
   const [authState, setAuthState] = useState();
   const [allDevices, setAllDevices] = useState([]);
 
+  const [markers, setMarkers] = useState([]);
+
   async function fetchAllDevices() {
     try {
-      let devices = await APINetwork.getAllDevices();
-      if (devices) {
-        setAllDevices(devices);
+      let resp = await APINetwork.getAllDevices();
+      if (resp) {
+        setAllDevices(resp.devices);
       }
     } catch (err) {
       console.error(err);
@@ -66,7 +68,7 @@ export default function Dashboard() {
     fetchAllDevices();
     console.log("Fetched all devices!");
     console.log(allDevices);
-  }, [allDevices]);
+  }, []);
 
   function handleBack() {
     setMinValue(minValue - 1 <= 0 ? 0 : minValue - 1);
@@ -186,11 +188,12 @@ export default function Dashboard() {
           </div>
 
           <div class="card-group">
-            {devices.length > 0 &&
-              devices.slice(minValue, maxValue).map((ele, index) => {
+            {allDevices.length > 0 &&
+              allDevices.slice(minValue, maxValue).map((ele, index) => {
+                console.log(ele)
                 if (
                   ele.deviceType.type === "IOS" ||
-                  ele.deviceType.type === "ANDRIOD"
+                  ele.deviceType.type === "ANDROID"
                 ) {
                   return (
                     <CustomCard
@@ -198,6 +201,8 @@ export default function Dashboard() {
                       device={ele.deviceNickname}
                       height="150"
                       alt="mobile img"
+                      deviceHash={ele.deviceHash}
+                      setMarkers={setMarkers}
                     />
                   );
                 }
@@ -209,6 +214,8 @@ export default function Dashboard() {
                       device={ele.deviceNickname}
                       height="150"
                       alt="mobile img"
+                      deviceHash={ele.deviceHash}
+                      setMarkers={setMarkers}
                     />
                   );
                 }
@@ -219,6 +226,8 @@ export default function Dashboard() {
                       device={ele.deviceNickname}
                       height="150"
                       alt="mobile img"
+                      deviceHash={ele.deviceHash}
+                      setMarkers={setMarkers}
                     />
                   );
                 }
@@ -230,14 +239,15 @@ export default function Dashboard() {
                       device={ele.deviceNickname}
                       height="150"
                       alt="mobile img"
+                      deviceHash={ele.deviceHash}
+                      setMarkers={setMarkers}
                     />
                   );
                 }
               })}
           </div>
-
           <h3>Track Your Devices</h3>
-          <Map />
+          <Map markers={markers} />
         </div>
       </div>
     );
