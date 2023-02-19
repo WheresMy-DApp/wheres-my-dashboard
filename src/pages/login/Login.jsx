@@ -13,7 +13,7 @@ export default function Login() {
     var Web3 = require('web3');
 
     var web3 = new Web3(Web3.givenProvider || "http://localhost:3000");
-    web3.eth.getAccounts().then(console.log);
+    // web3.eth.getAccounts().then(console.log);
 
     // check if metamask exists
     if (window.ethereum) {
@@ -24,7 +24,7 @@ export default function Login() {
 
         let response = await APINetwork.initiateLogin(accounts[0]);
         if (response.message) {
-          console.log(response.message);
+          // console.log(response.message);
           // it is supposed to be web3.eth.personal.sign 
           // it was written as web3.eth.sign below
           web3.eth.personal.sign(response.message, accounts[0], '', async (err, result) => {
@@ -33,8 +33,12 @@ export default function Login() {
               alert("Error signing message");
             } else {
               let loginResponse = await APINetwork.login(accounts[0], result);
-              console.log(loginResponse);
+              // console.log(loginResponse);
               // contains token and user info. Add to local storage and continue login process to dashboard here
+              localStorage.setItem('token', loginResponse.token);
+              localStorage.setItem('user', JSON.stringify(loginResponse.user));
+
+              nav("/dashboard");
             }
           });
         }
